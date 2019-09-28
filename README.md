@@ -1,5 +1,6 @@
 # Yii2 Media Manager Module
 Author: Bade lal
+
 This module provides a [Media Manager](https://packagesrepo@bitbucket.org/packagesrepo/mediamanagers) integration to your Yii2 application. It is still in its early stages, but feel free to use it, report bugs, and contribute.
 
 ## Installation
