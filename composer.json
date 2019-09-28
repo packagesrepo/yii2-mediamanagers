@@ -1,0 +1,21 @@
+{
+    "name": "packagesrepo/yii2-mediamanagers",
+    "description": "Yii2 Media Manager Module",
+    "keywords": ["yii2"],
+    "homepage": "https://github.com/packagesrepo/yii2-mediamanagers",
+    "type": "yii2-module",
+    "authors": [
+        {
+            "name": "Packages Repo",
+            "email": "packagesrepo@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*",
+        "yiisoft/yii2-imagine": "*",
+        "creocoder/yii2-flysystem": "*"
+    },
+    "autoload": {
+        "psr-4": {"packagesrepo\\yii2\\mediamanagers\\": ""}
+    }
+}
