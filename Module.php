@@ -43,6 +43,8 @@ class Module extends \yii\base\Module
      */
     public $thumbsPath = '@webroot/thumbs';
     public $thumbsUrl = '@web/thumbs';
+//    public $filePath = '@webroot/thumbs';
+//    public $fileUrl = '@web/thumbs';
     public $thumbsSize = Thumb::SIZE_THUMB;
     public $resizeMode = ManipulatorInterface::THUMBNAIL_INSET;
 

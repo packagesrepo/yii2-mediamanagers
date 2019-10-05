@@ -4,9 +4,9 @@ namespace packagesrepo\yii2\mediamanagers\components;
 
 use Yii;
 use yii\helpers\FileHelper;
-use yii\helpers\Url;
 
 use packagesrepo\yii2\mediamanagers\models\Thumb;
+use packagesrepo\yii2\mediamanagers\models\UploadForm;
 
 class FileSystem extends \yii\base\Component
 {
@@ -59,7 +59,7 @@ class FileSystem extends \yii\base\Component
      */
     protected function filterContents($contents, $recursive = false)
     {
-        $new = [];
+        $new = [];        
         foreach ($contents as $f) {
             if ($recursive && isset($f['type']) && $f['type'] === 'dir') {
                 continue;
@@ -67,10 +67,17 @@ class FileSystem extends \yii\base\Component
             if (isset($f['basename'])) {
                 if (preg_match('#^\.#', $f['basename']))
                     continue;
-            }
+            }            
             if (isset($f['extension'])) {
                 if (in_array($f['extension'], array_keys(Thumb::$extensions))) {
                     $f['thumb'] = Thumb::getThumbSrc($f['path']);
+                }        
+                
+                if (in_array($f['extension'], UploadForm::$allowedExtensions)) {                    
+                    if($f['type'] == 'file') {
+                        $f['original'] = Thumb::getFileSrc($f['path']);
+                    }
+                    
                 }
             }
             $new[] = $f;

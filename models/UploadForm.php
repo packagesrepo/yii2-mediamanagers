@@ -17,6 +17,8 @@ class UploadForm extends \yii\base\Model
      * @var \yii\web\UploadedFile
      */
     public $file;
+    public static $allowedExtensions = ['png', 'jpg', 'jpeg', 'gif', 'bmp', "avi", "mpeg", "mp4"];
+    public static $mimeTypes = ['image/*', 'video/*'];
 
     /**
      * @inheritdoc
@@ -30,9 +32,9 @@ class UploadForm extends \yii\base\Model
             [
                 ['file'], 'file',
                 'skipOnEmpty' => false,
-                'extensions' => ['png', 'jpg', 'jpeg', 'gif', 'bmp'],
-                'mimeTypes' => ['image/*'],
-                'maxSize' => 2000000, //2097152,
+                'extensions' => self::$allowedExtensions,
+                'mimeTypes' => self::$mimeTypes,
+                'maxSize' => 100000000, //2097152,
                 'maxFiles' => 1,
             ],
         ];

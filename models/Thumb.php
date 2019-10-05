@@ -39,7 +39,7 @@ class Thumb extends \yii\base\Model
     ];
 
     /**
-     * @var \packagesrepo\yii2\mediamanagers\components\FileSystem
+     * @var \iutbay\yii2\mm\components\FileSystem
      */
     public static $fs;
 
@@ -156,6 +156,9 @@ class Thumb extends \yii\base\Model
         }
     }
 
+    public static function getFileSrc($path)    {
+        return Url::to(Yii::getAlias('@mediaUrl') .DS. $path, true);
+    }
     /**
      * Get info from path
      * @param string $path
